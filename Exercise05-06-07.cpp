@@ -67,10 +67,10 @@ int main() {
   float rect1P, rect1A;
 
   //Primer rectangulo, coordenadas
-  rect1.p1.x = 1;
-  rect1.p1.y = 1;
-  rect1.p2.x = 10;
-  rect1.p2.y = 10;
+  rect1.p1.x = 10;
+  rect1.p1.y = 10;
+  rect1.p2.x = 1;
+  rect1.p2.y = 1;
 
   rect1P = rectPerimeter(rect1);
   rect1A = rectArea(rect1);
