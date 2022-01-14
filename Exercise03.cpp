@@ -1,49 +1,38 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-struct Player
+struct Complex
 {
-  string username;
-  int points;
+  int real, imaginary;
 };
 
-void saveGreaterPlayer(Player *actual, Player *greater) {
-  if (actual->points > greater->points) {
-    *greater = *actual;
-  }
+Complex addComplex(Complex c1, Complex c2){
+  Complex result;
+
+  result.real = c1.real + c2.real;
+  result.imaginary = c1.imaginary + c2.imaginary;
+
+  return result;
 }
 
 int main() {
-  int playersQtn = 3;
-  Player players[playersQtn], *greater, dummy;
+  Complex c1, c2;
 
-  dummy.username = "";
-  dummy.points = -1;
-  greater = &dummy;
+  cout << "INGRESE EL PRIMER COMPLEJO" << endl << "REAL: ";
+  cin >> c1.real;
+  cout << "IMAGINARIA: ";
+  cin >> c1.imaginary;
+  cout << endl;
 
-  cout << "INGRESE LOS DATOS DE LOS JUGADORES" << endl;
-  for (int i = 0; i < playersQtn; i++) {
-    cout << "JUGADOR " << i + 1 << endl << "USERNAME: ";
-    cin >> players[i].username;
+  cout << "INGRESE EL SEGUNDO COMPLEJO" << endl << "REAL: ";
+  cin >> c2.real;
+  cout << "IMAGINARIA: ";
+  cin >> c2.imaginary;
+  cout << endl;
 
-    cout << "PUNTOS: ";
-    cin >> players[i].points;
-
-    cout << endl;
-
-    saveGreaterPlayer(&players[i], greater);
-  }
-
-  //Para probar que todos los valores se almacenan
-  /* for (int i = 0; i < playersQtn; i++) {
-    cout << "JUGADOR " << i + 1 << endl;
-    cout << "USERNAME: " << players[i].username << endl;
-    cout << "PUNTOS: " << players[i].points << endl;
-  } */
-  
-  cout << "EL MEJOR JUGADOR ES: " << greater->username << " - " << greater->points << endl;
+  Complex addResult = addComplex(c1, c2);
+  cout << "RESPUESTA: " << addResult.real << " + " << addResult.imaginary << "i" << endl;
 
   return 0;
 }
